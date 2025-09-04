@@ -114,7 +114,6 @@ def person_generator():
     edu.add_education("City College", "Diploma", "IT Fundamentals", "2011-2013", "Basic IT courses")
 
     return Persone(name, birthday, contacts, skills, exp, edu)
-    
 
 def path_generator(file_name:str):
-    return f"C:/Users/sokso/OneDrive/Документы/Python Projcts/Resume_generator/resumes/{file_name}.pdf"
+    return f"C:/Users/sokso/OneDrive/Документы/GitHub/python-learning-projects/Resume_generator/resumes/{file_name}.pdf"
