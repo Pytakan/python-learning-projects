@@ -1,6 +1,6 @@
 import random
 
-
+from pathlib import Path
 from Resume_generator.user_info_module.Contacts import Contacts
 from Resume_generator.user_info_module.Skils import Skils
 from Resume_generator.user_info_module.Exireance import Expirence
@@ -115,5 +115,11 @@ def person_generator():
 
     return Persone(name, birthday, contacts, skills, exp, edu)
 
-def path_generator(file_name:str):
-    return f"C:/Users/sokso/OneDrive/Документы/GitHub/python-learning-projects/Resume_generator/resumes/{file_name}.pdf"
+def path_generator(file_name: str):
+    # Создаём папку "resumes" внутри корня проекта
+    project_root = Path(__file__).resolve().parent.parent
+    resumes_dir = project_root / "resumes"
+    resumes_dir.mkdir(parents=True, exist_ok=True)
+    path = resumes_dir / file_name
+    path = path.with_suffix(".pdf")
+    return str(path)
