@@ -5,8 +5,8 @@ from pathlib import Path
 def create_connection(db_file):
     """ create a database connection to the SQLite database
         specified by db_file
-    :param db_file: database file
-    :return: Connection object or None
+        :param db_file: database file
+        :return: Connection object or None
     """
     conn = None
     try:
@@ -25,6 +25,7 @@ db_path = Path(__file__).resolve().parent / "pythonsqlite.db"
 #     conn.execute(sql_request)
 
 # users = [
+
 #     (1, 'Alice', 30),
 #     (2, 'Bob', 25),
 #     (3, 'Charlie', 35),
