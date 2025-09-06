@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
+import csv
 
 url = 'https://webscraper.io/test-sites/e-commerce/allinone/computers/laptops'# URL of the page to scrape
 response = requests.get(url)# Get the HTML content of the page
@@ -38,3 +39,10 @@ for info in product_info:
 # requests - библиотека для выполнения HTTP-запросов и получения HTML-контента страницы.
 # requests.get(url) - выполняет GET-запрос к указанному URL и возвращает объект ответа.
 # response.text - содержит HTML-контент страницы в виде строки.
+
+with open('products.csv', 'w', encoding='utf-8') as file:
+   writer = csv.DictWriter(file, fieldnames=['title', 'price', 'rating'])
+   writer.writeheader()
+   writer.writerows(product_info)
+
+print(f"{len(product_info)} products saved to products.csv")
